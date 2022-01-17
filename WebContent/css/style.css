@@ -145,5 +145,6 @@ input[type="submit"]:hover{
     text-align:center;
     background-color: #004A3E;
     color:#fff;
+    text-align:center;
     line-height:80px;
 }
