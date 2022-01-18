@@ -22,42 +22,44 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>UserCreate</p>
+			<p>新規会員登録</p>
 		</div>
 		<div>
 			<s:if test="errorMessage !=''">
 				<s:property value="errorMessage" escape="false"/>
 			</s:if>
 			<s:form action="UserCreateConfirmAction">
-				<tr><!-- 	<tr>(横方向) -->
-					<td>
-						<label>ログインID:</label>
-					</td>
-					<td>
-						<input name="loginUserId" type="text" placeholder="ID" required>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>ログインPASS:</label>
-					</td>
-					<td>
-						<input name="loginPassword" type="text" placeholder="Password" required>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>ユーザー名:</label>
-					</td>
-					<td>
-						<input name="userName" type="text" placeholder="Username" required>
-					</td>
-				</tr>
-				<s:submit value="登録" type="submit"/>
+				<table>
+					<tr id="box"><!-- 	<tr>(横方向) -->
+						<td>
+							<label>ログインID　</label>
+						</td>
+						<td>
+							<input name="loginUserId" type="text" placeholder="ID" required>
+						</td>
+					</tr>
+					<tr id="box">
+						<td>
+							<label>ログインPASS　</label>
+						</td>
+						<td>
+							<input name="loginPassword" type="text" placeholder="Password" required>
+						</td>
+					</tr>
+					<tr id="box">
+						<td>
+							<label>ユーザー名　</label>
+						</td>
+						<td>
+							<input name="userName" type="text" placeholder="Username" required>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<input type="submit" value="登録">
 			</s:form>
-
 		<div>
-			<a href='<s:url action="HomeAction"/>'>前画面に戻る</a>
+			<a href='<s:url action="HomeAction"/>'>☜</a>
 		</div>
 	</div>
 	</div>

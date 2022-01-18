@@ -17,42 +17,43 @@
 <body>
 	<div id="header">
 		<ul>
-			<li><a href="UserCreateAction" type="submit">新規会員登録</a></li>
-			<li><a href="HomeAction" type="submit">ログイン</a></li>
+			<li><a href="MyPageAction" type="submit">MyPage</a></li>
 		</ul>
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>BuyItemConfirm</p>
+			<p>商品確認</p>
 		</div>
 		<div>
 			<s:form action="BuyItemConfirmAction">
 			<table>
-				<tr>
-					<td>商品名</td>
+				<tr id="box">
+					<td>商品名　</td>
 					<td><s:property value="session.buyItem_name"/></td>
 				</tr>
-				<tr>
-					<td>値段</td>
+				<tr id="box">
+					<td>値段　</td>
 					<td><s:property value="session.buyItem_price"/>
 						<span>円</span>
 					</td>
 				</tr>
-				<tr>
-					<td>購入個数</td>
+				<tr id="box">
+					<td>購入個数　</td>
 					<td><s:property value="session.stock"/>
 						<span>個</span>
 					</td>
 				</tr>
-				<tr>
-					<td>支払い方法</td>
+				<tr id="box">
+					<td>支払い方法　</td>
 					<td><s:property value="session.pay"/></td>
 				</tr>
-				<tr>
-					<td><s:submit value="完了"/></td>
-				</tr>
 			</table>
+			<br>
+				<input type="submit" value="完了">
 			</s:form>
+		</div>
+		<div>
+			<a href='<s:url action="GoHomeAction"/>'>☜</a>
 		</div>
 		</div>
 		<div id="footer">

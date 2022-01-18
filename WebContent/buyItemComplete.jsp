@@ -17,20 +17,20 @@
 <body>
 	<div id="header">
 		<ul>
-			<li><a href="UserCreateAction" type="submit">新規会員登録</a></li>
-			<li><a href="HomeAction" type="submit">ログイン</a></li>
+			<li><a href="BuyItemAction" type="submit">商品購入</a></li>
+			<li><a href="MyPageAction" type="submit">MyPage</a></li>
 		</ul>
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>BuyItemComplete</p>
+			<p>商品購入完了</p>
 		</div>
+		<br>
 		<div>
-			<p>購入手続きが完了致しました。</p>
-			<div>
-				<a href ='<s:url action="MyPageAction"/>'>
-				マイページ</a><span>から購入履歴の確認が可能です。</span>
-			</div>
+			<h3>購入手続きが完了致しました。<br>
+				商品到着までいましばらくお待ちください。<br>
+				購入履歴はMyPageから確認ができます。
+			</h3>
 		</div>
 	</div>
 	<div id="footer">

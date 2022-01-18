@@ -17,50 +17,49 @@
 <body>
 	<div id="header">
 		<ul>
-			<li><a href="UserCreateAction" type="submit">新規会員登録</a></li>
 			<li><a href="HomeAction" type="submit">ログイン</a></li>
 		</ul>
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>UserCreateConfirm</p>
+			<p>確認画面</p>
 		</div>
 		<div>
 			<h3>登録する内容は以下でよろしいですか。</h3>
-			<table>
-				<s:form action="UserCreateCompleteAction">
-				<tr id="box">
-					<td>
-						<label>ログインID:</label>
-					</td>
-					<td>
-						<s:property value="loginUserId" escape="false"/>
-					</td>
-				</tr>
-				<tr id="box">
-					<td>
-						<label>ログインPASS:</label>
-					</td>
-					<td>
-						<s:property value="loginPassword" escape="false"/>
-					</td>
-				</tr>
-				<tr id="box">
-					<td>
-						<label>ユーザー名:</label>
-					</td>
-					<td>
-						<s:property value="userName" escape="false"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:submit value="完了" type="submit"/>
-					</td>
-				</tr>
+			<s:form action="UserCreateCompleteAction">
+				<table>
+					<tr id="box">
+						<td>
+							<label>ログインID：</label>
+						</td>
+						<td>
+							<s:property value="loginUserId" escape="false"/>
+						</td>
+					</tr>
+					<tr id="box">
+						<td>
+							<label>ログインPASS：</label>
+						</td>
+						<td>
+							<s:property value="loginPassword" escape="false"/>
+						</td>
+					</tr>
+					<tr id="box">
+						<td>
+							<label>ユーザー名：</label>
+						</td>
+						<td>
+							<s:property value="userName" escape="false"/>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<input type="submit" value="完了">
 			</s:form>
-		</table>
-	</div>
+		</div>
+		<div>
+			<a href='<s:url action="UserCreareAction"/>'>☜</a>
+		</div>
 	</div>
 	<div id="footer">
 		sample ECsite 2022 year
