@@ -13,38 +13,47 @@ import template.sample.dto.LoginDTO;
 
 			//サブクラス　//継承　//スーパークラス //実装　//インターフェイス
 public class LoginAction extends ActionSupport implements SessionAware{
-	
+
 	private String loginUserId;
 	private String loginPassword;
 	private String result;
 	private Map<String,Object>session;
-	
+
+	private LoginDAO loginDAO = new LoginDAO();
+	private LoginDTO loginDTO =new LoginDTO();
+	private BuyItemDAO BuyItemDAO = new BuyItemDAO();
+
 
 	public String execute(){
-		LoginDAO loginDAO = new LoginDAO();
-		LoginDTO loginDTO =new LoginDTO();
-		BuyItemDAO buyItemDAO = new BuyItemDAO();
-		
+
 		result =ERROR;
+		//DAOのgetLoginUserInfoを代入
 		loginDTO=loginDAO.getLoginUserInfo(loginUserId,loginPassword);
+		//Map<String,Object>sessionでのデータ追加
 		session.put("loginUser",loginDTO);
-		
+
+		//loginUserがDTOのloginUserがtrueであれば
 		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
+			//成功
 			result=SUCCESS;
-			BuyItemDTO buyItemDTO=buyItemDAO.getBuyItemInfo();
-			
+
+			BuyItemDTO buyItemDTO=BuyItemDAO.getBuyItemInfo();
+			//データ追加(次の画面の情報)
+			//loginIdの値がDTOからくる
 			session.put("login_user_id",loginDTO.getLoginId());
 			session.put("id",buyItemDTO.getId());
 			session.put("buyItem_name",buyItemDTO.getItemName());
 			session.put("buyItem_price",buyItemDTO.getItemPrice());
-			
+
+			//strutsに送る
 			return result;
 		}
+		//strutsに送る
 		return result;
-			
+
 	}
 	public String getLoginUserId(){
-		return loginUserId;	
+		return loginUserId;
 	}
 	public void setLoginUserId(String loginUserId){
 		this.loginUserId =loginUserId;
@@ -61,6 +70,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	@Override
 	public void setSession(Map<String,Object>session){
 		this.session=session;
-	}		
-		
+	}
+
 }

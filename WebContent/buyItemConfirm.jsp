@@ -11,8 +11,15 @@
 	<meta http-equiv="imagetoolbar" content="no"/>
 	<meta name="description" content=""/>
 	<meta name="keywords" content=""/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<title>buyItemConfirm画面</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript">
+		function submitAction(url){
+			$('form').attr('action',url);
+			$('form').submit();
+		}
+	</script>
 </head>
 <body>
 	<div id="header">
@@ -25,7 +32,7 @@
 			<p>商品確認</p>
 		</div>
 		<div>
-			<s:form action="BuyItemConfirmAction">
+			<s:form>
 			<table>
 				<tr id="box">
 					<td>商品名　</td>
@@ -49,11 +56,12 @@
 				</tr>
 			</table>
 			<br>
-				<input type="submit" value="完了">
+				<input type="submit" value="完了" onclick="submitAction('BuyItemConfirmAction')"/>
 			</s:form>
 		</div>
+		<br>
 		<div>
-			<a href='<s:url action="GoHomeAction"/>'>☜</a>
+			<input type="button" value="☜☜☜　Back" onclick="submitAction('GoHomeAction')"/>
 		</div>
 		</div>
 		<div id="footer">

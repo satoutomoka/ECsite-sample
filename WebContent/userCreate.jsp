@@ -58,10 +58,7 @@
 				<br>
 				<input type="submit" value="登録">
 			</s:form>
-		<div>
-			<a href='<s:url action="HomeAction"/>'>☜</a>
 		</div>
-	</div>
 	</div>
 	<div id="footer">
 		sample ECsite 2022 year

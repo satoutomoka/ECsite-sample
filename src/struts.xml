@@ -22,7 +22,12 @@
 
 <!-- 		[execute]メソッドの処理結果に応じてフロントに送る[jspファイル]を設定している -->
  		<result name="success">buyItem.jsp</result>
- 		<result name="error">home.jsp</result>
+ 		<result name="error">login.jsp</result>
+ 	</action>
+
+<!--  	GoBackActin -->
+ 	<action name="GoBackAction" class="template.sample.action.GoBackAction" method="execute">
+ 		<result name="Userback">userCreate.jsp</result>
  	</action>
 
 <!--  	UserCreateActin -->
@@ -44,12 +49,13 @@
 <!--  	BuyItemAction -->
  	<action name="BuyItemAction" class="template.sample.action.BuyItemAction" method="execute">
  		<result name="success">buyItemConfirm.jsp</result>
+ 		<result name="Itemback">buyItem.jsp</result>
  	</action>
 
 <!--  	BuyItemConfirmAction -->
  	<action name="BuyItemConfirmAction" class="template.sample.action.BuyItemConfirmAction" method="execute">
  		<result name="success">buyItemComplete.jsp</result>
- 		<result name="back">buyItem.jsp</result>
+
  	</action>
 
 <!--  	MyPageAction -->

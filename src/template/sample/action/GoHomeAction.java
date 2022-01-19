@@ -6,14 +6,37 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import  template.sample.dao.BuyItemDAO;
+import  template.sample.dto.BuyItemDTO;
+
 public class GoHomeAction extends ActionSupport implements SessionAware{
-	private Map<String,Object>session;
+	public Map<String,Object>session;
 
 	public String execute(){
-		return SUCCESS;
+		//ログインしていない場合
+		String result ="login";
+
+		//ログイン済み判定を行います。一度ログインしている場合はログイン確認画面ではなく商品画面へ飛ぶ
+		if(session.containsKey("login_user_id")){
+			BuyItemDAO buyItemDAO = new BuyItemDAO();
+			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
+
+			//DBから取得した商品情報をセッションに格納します
+			session.put("id", buyItemDTO.getId());
+			session.put("buyItem_name", buyItemDTO.getItemName());
+			session.put("buyItem_price", buyItemDTO.getItemPrice());
+
+			//ログイン状態の場合
+			result =SUCCESS;
+		}
+
+		//executeメッソドの戻り値として、ログイン状態の場合は[SUCCESS]
+		//ログインしてない場合は["login"]を返します
+		return result;
+
 	}
 	public Map<String,Object>getSession(){
-		return this.session;
+		return session;
 	}
 	@Override
 	public void setSession(Map<String,Object>session){

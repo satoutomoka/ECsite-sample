@@ -80,6 +80,23 @@ form{
 	padding:3% 4%;
 }
 
+input[type="button"]{
+  width:20%;
+  background:#004A3E;
+  border:0;
+  padding:1%;
+  font-family:'Open Sans',sans-serif;
+  font-size:100%;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+  position: absolute;
+  right: 40%;
+
+}
+
+
 #box{
 	line-height:30px;
 	font-size:15px;
@@ -145,6 +162,10 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
+  background:#53B9A8;
+}
+
+input[type="button"]:hover{
   background:#53B9A8;
 }
 

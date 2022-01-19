@@ -7,15 +7,15 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateConfirmAction extends ActionSupport implements SessionAware{
-	
+
 	private String loginUserId;
 	private String loginPassword;
 	private String userName;
 	private Map<String,Object>session;
 	private String errorMessage;
-	
+
 	public String execute(){
-		
+
 		String result =SUCCESS;
 		//未入力項目の有無を確認
 		if(!(loginUserId.equals(""))
@@ -24,16 +24,18 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 					//確認画面で表示したい値をセッションに格納
 					session.put("loginUserId",loginUserId);
 					session.put("loginPassword",loginPassword);
-					session.put("userName",userName);		
+					session.put("userName",userName);
 		}else{
 			setErrorMessage("未入力の項目があります。");
+			//エラー返す
 			result =ERROR;
 		}
+		//成功返す
 		return result;
 	}
 	//Actionに返す
 	public String getLoginUserId(){
-		return loginUserId;	
+		return loginUserId;
 	}
 	//格納
 	public void setLoginUserId(String loginUserId){
@@ -46,7 +48,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.loginPassword =loginPassword;
 	}
 	public String getUserName(){
-		return userName;	
+		return userName;
 	}
 	public void setUserName(String userName){
 		this.userName =userName;
@@ -57,9 +59,9 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	@Override
 	public void setSession(Map<String,Object>session){
 		this.session=session;
-	}		
+	}
 	public String getErrorMessage(){
-		return errorMessage;	
+		return errorMessage;
 	}
 	public void setErrorMessage(String errorMessage){
 		this.errorMessage =errorMessage;
