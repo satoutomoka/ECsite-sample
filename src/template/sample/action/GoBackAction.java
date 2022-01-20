@@ -13,14 +13,9 @@ public class GoBackAction extends ActionSupport implements SessionAware{
 
 		//もし新規登録だったら
 		//ログインしていない場合
-		String result ="Userback";
+		String result ="back";
 
 		return result;
-
-		//そうでなければ
-		//String result ="Itemback";
-
-		//return result;
 
 	}
 	public Map<String,Object>getSession(){

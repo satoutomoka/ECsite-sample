@@ -17,6 +17,7 @@ public class GoHomeAction extends ActionSupport implements SessionAware{
 		String result ="login";
 
 		//ログイン済み判定を行います。一度ログインしている場合はログイン確認画面ではなく商品画面へ飛ぶ
+		//.containsKeyは指定したキーが存在するか確認を行い、キーが存在する場合はtrue
 		if(session.containsKey("login_user_id")){
 			BuyItemDAO buyItemDAO = new BuyItemDAO();
 			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
