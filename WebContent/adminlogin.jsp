@@ -16,30 +16,37 @@
 	<meta name="description" content=""/>
 <!-- 	html文章内容をキーワードで指定できる -->
 	<meta name="keywords" content=""/>
-	<title>Home画面</title>
+	<title>AdminLogin画面</title>
+
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 	<div id="header">
 		<ul>
-			<li><a href="UserCreateAction" type="submit">新規会員登録</a></li>
-			<li><a href="HomeAction" type="submit">ログイン</a></li>
+			<li><a href="HomeAction" type="submit">ログアウト</a></li>
 		</ul>
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>Home</p>
+			<p>管理者用ログイン画面</p>
 		</div>
 		<div>
-		<br><h3>ようこそ！ログイン後、商品購入できます。</h3><br>
-			<s:form action="HomeAction">
-				<input type="submit" value="ログイン画面へ">
-			</s:form>
+			<h3>こちらは管理者用ログイン画面です。<br>
+				管理者でない方はログアウトしてください。</h3>
+	<!-- 		AdminLoginActionクラスが呼び出されている -->
+				<s:form action="AdminLoginAction">
+				    <div id="iconUser"></div>
+					 <input name="AdminloginId" type="password" placeholder="AdminID" required>
+					<div id="iconPassword"></div>
+					<input name="loginPassword" type="password" placeholder="Password" required>
+					<input type="submit" value="ログイン">
+				</s:form>
+			<br/>
 		</div>
-		<p>サイトの管理者の方は<a href="adminlogin.jsp" type="submit">こちらへ</a></p>
 	</div>
 	<div id="footer">
 		sample ECsite 2022 year
 	</div>
+
 </body>
 </html>
