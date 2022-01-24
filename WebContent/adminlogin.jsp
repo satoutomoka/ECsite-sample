@@ -36,7 +36,7 @@
 	<!-- 		AdminLoginActionクラスが呼び出されている -->
 				<s:form action="AdminLoginAction">
 				    <div id="iconUser"></div>
-					 <input name="AdminloginId" type="password" placeholder="AdminID" required>
+					 <input name="loginUserId" type="password" placeholder="AdminID" required>
 					<div id="iconPassword"></div>
 					<input name="loginPassword" type="password" placeholder="Password" required>
 					<input type="submit" value="ログイン">

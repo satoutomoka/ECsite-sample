@@ -1,14 +1,16 @@
 package template.sample.dto;
 
 public class LoginDTO {
-	
+
 	//フィールド変数を宣言
 	private String loginId;
 	private String loginPassword;
 	private String userName;
+	private String AdminloginId;
 	//偽を宣言する
 	private boolean loginFlg=false;
-	
+	private String adminFlg;
+
 	//特定のフィールドに対し、そのデータを外部から取得するメソッド
 	//Actionから呼び出され、loginIdの値をActionに渡す
 	public String getLoginId(){
@@ -40,5 +42,18 @@ public class LoginDTO {
 	public void setLoginFlg(boolean loginFlg){
 		this.loginFlg=loginFlg;
 	}
+	public String getAdminloginId() {
+		return AdminloginId;
+	}
+	public void setAdminloginId(String adminloginId) {
+		AdminloginId = adminloginId;
+	}
+	public String getAdminFlg() {
+		return adminFlg;
+	}
+	public void setAdminFlg(String adminFlg) {
+		this.adminFlg = adminFlg;
+	}
+
 
 }

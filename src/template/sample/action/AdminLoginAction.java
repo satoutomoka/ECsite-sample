@@ -6,46 +6,52 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import template.sample.dao.AdminLoginDAO;
-import template.sample.dto.AdminLoginDTO;
+import template.sample.dao.LoginDAO;
+import template.sample.dto.LoginDTO;
 
 			//サブクラス　//継承　//スーパークラス //実装　//インターフェイス
 public class AdminLoginAction extends ActionSupport implements SessionAware{
 
-	private String AdminloginId;
+	private String loginUserId;
 	private String loginPassword;
-	private String result;
-	private Map<String,Object>session;
+	public Map<String,Object>session;
 
-	private AdminLoginDAO AdminLoginDAO = new AdminLoginDAO();
-	private AdminLoginDTO AdminLoginDTO =new AdminLoginDTO();
+	//classの下に書くといくつか使われていると設計上の問題勘違いされるためexecute内に書くのが好ましい
+	private LoginDAO loginDAO = new LoginDAO();
+	private LoginDTO loginDTO =new LoginDTO();
 
 
 	public String execute(){
 
-		result =ERROR;
-		//DAOのgetLoginUserInfoを代入
-		setAdminLoginDTO(AdminLoginDAO.getLoginadminInfo(AdminloginId,loginPassword));
-		//Map<String,Object>sessionでのデータ追加
-		session.put("loginAdmin",AdminLoginDTO);
+		String result =ERROR;
+		loginDTO=loginDAO.getLoginUserInfo(loginUserId,loginPassword);
+		session.put("loginUser",loginDTO);
 
-		//loginUserがDTOのloginUserがtrueであれば
-		if(((AdminLoginDTO)session.get("loginAdmin")).getAdminFlg()){
-			//成功
-			result=SUCCESS;
+		//管理者かユーザーなのかの判断
+		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
+			//管理者の条件
+			if((((LoginDTO)session.get("loginUser")).getAdminFlg()!= null)
+					&&(((LoginDTO)session.get("loginUser")).getAdminFlg().equals("1"))){
 
-			//strutsに送る
-			return result;
+						session.put("login_user_id",loginDTO.getLoginId());
+
+						result ="admin";
+						return result;
+
+					}else{
+						result=SUCCESS;
+						return result;
+
+					}
 		}
-		//strutsに送る
 		return result;
 
 	}
 	public String getLoginUserId(){
-		return AdminloginId;
+		return loginUserId;
 	}
-	public void setLoginUserId(String AdminloginId){
-		this.AdminloginId =AdminloginId;
+	public void setLoginUserId(String loginUserId){
+		this.loginUserId =loginUserId;
 	}
 	public String getLoginPassword(){
 		return loginPassword;
@@ -53,18 +59,9 @@ public class AdminLoginAction extends ActionSupport implements SessionAware{
 	public void setLoginPassword(String loginPassword){
 		this.loginPassword =loginPassword;
 	}
-	public Map<String,Object>getSession(){
-		return session;
-	}
 	@Override
 	public void setSession(Map<String,Object>session){
 		this.session=session;
-	}
-	public AdminLoginDTO getAdminLoginDTO() {
-		return AdminLoginDTO;
-	}
-	public void setAdminLoginDTO(AdminLoginDTO adminLoginDTO) {
-		AdminLoginDTO = adminLoginDTO;
 	}
 
 }

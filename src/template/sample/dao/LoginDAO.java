@@ -41,6 +41,8 @@ public class LoginDAO {
 				if(resultSet.getString("login_id")!=null){
 					loginDTO.setLoginFlg(true);
 				}
+				//管理者用コード
+				loginDTO.setAdminFlg(resultSet.getString("admin_flg"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
