@@ -37,28 +37,16 @@
 			<s:form>
 				<table>
 					<tr id="box">
-						<td>
-							<label>ログインID：</label>
-						</td>
-						<td>
-							<s:property value="loginUserId" escape="false"/>
-						</td>
+						<td>ログインID：</td>
+						<td><s:property value="session.loginUserId"/></td>
 					</tr>
 					<tr id="box">
-						<td>
-							<label>ログインPASS：</label>
-						</td>
-						<td>
-							<s:property value="loginPassword" escape="false"/>
-						</td>
+						<td>ログインPASS：</td>
+						<td><s:property value="session.loginPassword"/></td>
 					</tr>
 					<tr id="box">
-						<td>
-							<label>ユーザー名：</label>
-						</td>
-						<td>
-							<s:property value="userName" escape="false"/>
-						</td>
+						<td>ユーザー名：</td>
+						<td><s:property value="session.userName"/></td>
 					</tr>
 				</table>
 				<br>

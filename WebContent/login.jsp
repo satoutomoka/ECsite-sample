@@ -35,12 +35,9 @@
 	<!-- 		LoginActionクラスが呼び出されている -->
 				<s:form action="LoginAction">
 				    <div id="iconUser"></div>
-					<!-- s:textfield name="loginUserId" type="text"/>-->
 					 <input name="loginUserId" type="password" placeholder="ID" required>
 					<div id="iconPassword"></div>
-					<!--  s:password name="loginPassword" type="password"/>-->
 					<input name="loginPassword" type="password" placeholder="Password" required>
-					<!--<s:submit value="ログイン" type="submit"/>-->
 					<input type="submit" value="ログイン">
 				</s:form>
 			<br/>

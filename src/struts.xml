@@ -77,6 +77,21 @@
  		<result name="success">admin.jsp</result>
  	</action>
 
+ <!--  	UserListAction -->
+	<action name="UserListAction" class="template.sample.action.UserListAction" method="execute">
+ 		<result name="success">userList.jsp</result>
+ 	</action>
+
+ <!--  	UserListDeleteConfirmAction -->
+ 	<action name="UserListDeleteConfirmAction" class="template.sample.action.UserListDeleteConfirmAction" method="execute">
+ 		<result name="success">userListDeleteConfirm.jsp</result>
+ 	</action>
+
+<!--  	UserListDeleteComleteAction -->
+ 	<action name="UserListDeleteCompleteAction" class="template.sample.action.UserListDeleteCompleteAction" method="execute">
+ 		<result name="success">userListDeleteComplete.jsp</result>
+ 	</action>
+
 
  </package>
 </struts>

@@ -34,7 +34,7 @@ body{
 
 a{
   text-decoration: none;
-  color:#fff;
+  color:#8ad0c4;
 
 }
 
@@ -48,6 +48,7 @@ ul{
 }
 
 ul li{
+	color:#fff;
 	float:left;
 	list-style:none;
 	padding-right:20px;

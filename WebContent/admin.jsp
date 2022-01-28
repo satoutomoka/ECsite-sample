@@ -25,6 +25,7 @@
 					<h2>商品</h2>
 					<div id="link">
 						<a href='<s:url action="ItemCreateAction"/>'><s:submit value="商品登録" id="box"/></a>
+						<br>
 						<a href='<s:url action="ItemListAction"/>'><s:submit value="一覧" id="box"/></a>
 					</div>
 				</div>

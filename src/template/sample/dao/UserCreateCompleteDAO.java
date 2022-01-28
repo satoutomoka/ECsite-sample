@@ -8,15 +8,15 @@ import template.sample.util.DBConnector;
 import template.sample.util.DateUtil;
 
 public class UserCreateCompleteDAO {
-	private DateUtil dateUtil=new DateUtil();
 
-	private String sql="insert into login_user_transaction(login_id,login_pass,user_name,insert_date)values(?,?,?,?)";
-
-	public void createUser(String loginUserId,String loginUserPassword,String userName)throws SQLException{
+	public void createUser(String loginUserId,String loginUserPassword,String userName){
 
 		//DBにインスタンス化とDB接続
 		DBConnector dbConnector =new DBConnector();
 		Connection connection =dbConnector.getConnection();
+		DateUtil dateUtil=new DateUtil();
+
+		String sql="insert into login_user_transaction(login_id,login_pass,user_name,insert_date)values(?,?,?,?)";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -38,7 +38,11 @@ public class UserCreateCompleteDAO {
 			e.printStackTrace();
 		}finally{ //finallyは最後に実行されるものを指定するための構文
 			//DB切断
-			connection.close();
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
