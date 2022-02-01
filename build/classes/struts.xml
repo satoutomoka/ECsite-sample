@@ -64,7 +64,7 @@
  		<result name="success">myPage.jsp</result>
  	</action>
 
- <!-- AdminLoginAction -->
+ <!-- AdminLoginAction 管理者用ログイン画面 -->
  	<action name="AdminLoginAction" class="template.sample.action.AdminLoginAction" method="execute">
  		<result name="success">login.jsp</result>
  		<result name="error">adminlogin.jsp</result>
@@ -72,12 +72,12 @@
 
  	</action>
 
-<!-- AdminAction -->
+<!-- AdminAction 管理者用画面 -->
  	<action name="AdminAction" class="template.sample.action.AdminAction" method="execute">
  		<result name="success">admin.jsp</result>
  	</action>
 
- <!--  	UserListAction -->
+ <!--  	UserListAction 管理者用ユーザー一覧 -->
 	<action name="UserListAction" class="template.sample.action.UserListAction" method="execute">
  		<result name="success">userList.jsp</result>
  	</action>
@@ -87,9 +87,47 @@
  		<result name="success">userListDeleteConfirm.jsp</result>
  	</action>
 
-<!--  	UserListDeleteComleteAction -->
+<!--  	UserListDeleteCompleteAction -->
  	<action name="UserListDeleteCompleteAction" class="template.sample.action.UserListDeleteCompleteAction" method="execute">
  		<result name="success">userListDeleteComplete.jsp</result>
+ 	</action>
+
+ <!--  	ItemCreateAction 管理者用商品登録 -->
+	<action name="ItemCreateAction" class="template.sample.action.ItemCreateAction" method="execute">
+ 		<result name="success">itemCreate.jsp</result>
+ 	</action>
+
+ <!--  	ItemCreateConfirmAction -->
+ 	<action name="ItemCreateConfirmAction" class="template.sample.action.ItemCreateConfirmAction" method="execute">
+ 		<result name="success">itemCreateConfirm.jsp</result>
+ 		<result name="error">itemCreate.jsp</result>
+ 	</action>
+
+ <!--  	ItemCreateCompleteAction -->
+ 	<action name="ItemCreateCompleteAction" class="template.sample.action.ItemCreateCompleteAction" method="execute">
+ 		<result name="success">itemCreateComplete.jsp</result>
+ 		<result name="error">itemCreate.jsp</result>
+ 	</action>
+
+ <!--  	ItemListAction 管理者用商品一覧 -->
+	<action name="ItemListAction" class="template.sample.action.ItemListAction" method="execute">
+ 		<result name="success">itemList.jsp</result>
+ 	</action>
+
+ <!--  	ItemDetailsAction 商品詳細-->
+	<action name="ItemDetailsAction" class="template.sample.action.ItemDetailsAction" method="execute">
+ 		<result name="success">itemDetails.jsp</result>
+ 	</action>
+
+ <!--  	ItemListDeleteConfirmAction -->
+ 	<action name="ItemListDeleteConfirmAction" class="template.sample.action.ItemListDeleteConfirmAction" method="execute">
+ 		<result name="success">itemListDeleteConfirm.jsp</result>
+
+ 	</action>
+
+<!--  	ItemListDeleteCompleteAction -->
+ 	<action name="ItemListDeleteCompleteAction" class="template.sample.action.ItemListDeleteCompleteAction" method="execute">
+ 		<result name="success">itemListDeleteComplete.jsp</result>
  	</action>
 
 

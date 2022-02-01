@@ -16,9 +16,25 @@ public class UserListDeleteCompleteAction extends ActionSupport{
 		String result =ERROR;
 
 		if(deleteFlg ==null){
+			Iddelete();
 
 		}else if(deleteFlg.equals("1")){
 			delete();
+		}
+		result =SUCCESS;
+		return result;
+	}
+
+	public String Iddelete() throws SQLException{
+		String result =ERROR;
+		UserListDeleteCompleteDAO userDeleteListCompleteDAO =new UserListDeleteCompleteDAO();
+		int res = userDeleteListCompleteDAO.deleteId(result);
+
+		if(res > 0){
+			setMessage("ユーザー情報を正しく削除しました。");
+
+		}else{
+			setMessage("ユーザー情報の削除に失敗しました。");
 		}
 		result =SUCCESS;
 		return result;
@@ -31,6 +47,7 @@ public class UserListDeleteCompleteAction extends ActionSupport{
 
 		if(res > 0){
 			setMessage("ユーザー情報を正しく削除しました。");
+
 		}else{
 			setMessage("ユーザー情報の削除に失敗しました。");
 		}

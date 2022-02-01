@@ -23,10 +23,36 @@
 		</div>
 		<div>
 			<h3>管理者以外のユーザーを削除します。よろしいですか？</h3>
-			<s:form action="UserListDeleteCompleteAction">
-				<input type="hidden" name="deleteFlg" value="1">
-				<input type="submit" value="OK">
-			</s:form>
+			<!-- もし1つの削除が押下されたら -->
+			<s:if test="%{userInfoDTOList < 2}">
+				<s:form action="UserListDeleteCompleteAction">
+					<input type="hidden" name="deleteFlg" value=null>
+					<input type="submit" value="OK1">
+				</s:form>
+			</s:if>
+			<s:else>
+				<s:form action="UserListDeleteCompleteAction">
+					<table border="1">
+					<tr>
+						<th>ログインID</th>
+						<th>ログインPASS</th>
+						<th>ユーザー名</th>
+						<th>登録日</th>
+						<th>更新日</th>
+						<th colspan="2">アクション</th>
+					</tr>
+					<tr>
+						<td><s:property value="session.loginId"/></td>
+						<td><s:property value="session.loginPass"/></td>
+						<td><s:property value="session.userName"/></td>
+						<td><s:property value="session.insert_date"/></td>
+						<td><s:property value="session.update_date"/></td>
+					</tr>
+				</table>
+					<input type="hidden" name="deleteFlg" value="1">
+					<input type="submit" value="OK2">
+				</s:form>
+			</s:else>
 			<br>
 		<div>
 			<input type="button" value="☜☜☜　Back" onclick="submitAction('UserListAction')"/>

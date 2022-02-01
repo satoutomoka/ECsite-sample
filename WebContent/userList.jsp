@@ -6,7 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>ユーザー一覧</title>
+<script type="text/javascript">
+	function deleteRow(obj) {
+	    // 削除ボタンを押下された行を取得
+	    tr = obj.parentNode.parentNode;
+	    // trのインデックスを取得して行を削除する
+	    tr.parentNode.deleteRow(tr.sectionRowIndex);
+	}
+</script>
 </head>
 <body>
 	<div id="header">
@@ -31,7 +40,7 @@
 						<th>ユーザー名</th>
 						<th>登録日</th>
 						<th>更新日</th>
-						<th>アクション</th>
+						<th colspan="2">アクション</th>
 					</tr>
 					<s:iterator value="userInfoDTOList">
 						<tr>
@@ -41,14 +50,14 @@
 							<td><s:property value="insert_date"/></td>
 							<td><s:property value="update_date"/></td>
 							<td><a href='<s:url action="UserListDeleteConfirmAction"/>'>
-							<s:param name="id" value="%{id}"/>削除</a></td>
+							<s:param name="deleteId" value="%{loginId}"/>削除</a></td>
 						</tr>
 					</s:iterator>
 				</table>
 				<br>
 				<tr>
 					<td>
-						<a href='<s:url action="UserListDeleteConfirmAction"/>'><s:submit value="全て削除" id="delete"/></a>
+						<a href='<s:url action="UserListDeleteConfirmAction"/>'><s:submit value="全て削除" name="deleteAll" id="delete"/></a>
 					</td>
 				</tr>
 			</s:elseif>

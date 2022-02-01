@@ -12,7 +12,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import template.sample.dao.ItemListDAO;
 import template.sample.dto.ItemInfoDTO;
 
-
 public class ItemListAction extends ActionSupport implements SessionAware{
 	//キーがString
 	private Map<String,Object> session;
@@ -21,7 +20,6 @@ public class ItemListAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 		ItemListDAO itemListDAO =new ItemListDAO();
-
 		itemInfoDTOList = itemListDAO.getItemList();
 
 		if(!(itemInfoDTOList.size() >0)){
