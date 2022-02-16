@@ -9,7 +9,11 @@
 <title>商品情報詳細画面</title>
 </head>
 <body>
-	<div id="header"></div>
+	<div id="header">
+		<ul>
+			<li><a href="AdminAction" type="submit">管理者Top</a></li>
+		</ul>
+	</div>
 	<div id="main">
 		<div id="top">
 			<p>商品詳細</p>
@@ -19,6 +23,7 @@
 		</s:if>
 		<s:elseif test="message == null">
 			<h3>商品情報は以下になります。</h3>
+			<s:form action="ItemDeleteCompleteAction">
 			<table border="1">
 				<tr>
 					<th>Id</th>
@@ -45,16 +50,13 @@
 					<td><s:property value="itemDetailsDTO.updated_date"/></td>
 				</tr>
 			</table>
-			<s:form action="ItemDeleteConfirmAction">
-				<s:hidden name="id" value="%{id}"/>
+				<s:hidden name="id" value="%{itemDetailsDTO.id}"/>
 				<s:submit value="削除"/>
-				
 			</s:form>
 		</s:elseif>
-		<div id ="text-right">
-			<p>商品一覧は<a href='<s:url action="ItemListAction"/>'>こちら</a></p>
 		</div>
+		<div id="footer">
+			sample ECsite 2022 year
 		</div>
-		<div id ="footer"></div>
 	</body>
 </html>

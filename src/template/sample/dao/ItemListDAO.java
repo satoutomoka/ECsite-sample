@@ -15,10 +15,9 @@ public class ItemListDAO {
 	private DBConnector db =new DBConnector();
 	private Connection con =db.getConnection();
 
-	//DBから購入履歴を取得するためのメソッド
 	public List<ItemInfoDTO>getItemList()throws SQLException{
 
-		List<ItemInfoDTO>itemInfoDTOList =new ArrayList<ItemInfoDTO>();
+		List<ItemInfoDTO>ItemInfoDTOList =new ArrayList<ItemInfoDTO>();
 		//複数のテーブルを紐づけ
 		String sql="select *from item_info_transaction order by id";
 
@@ -34,14 +33,14 @@ public class ItemListDAO {
 				dto.setItemStock(rs.getString("item_stock"));
 				dto.setInsert_date(rs.getString("insert_date"));
 				dto.setUpdated_date(rs.getString("updated_date"));
-				itemInfoDTOList.add(dto);
+				ItemInfoDTOList.add(dto);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			con.close();
 		}
-		return itemInfoDTOList;
+		return ItemInfoDTOList;
 	}
 
 

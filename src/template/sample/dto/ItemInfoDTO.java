@@ -2,14 +2,14 @@
 package template.sample.dto;
 
 public class ItemInfoDTO {
-	
-	private String  id;
+
+	private String id;
 	private String itemName;
 	private String itemPrice;
 	private String itemStock;
 	private String insert_date;
 	private String updated_date;
-	
+
 	public String getId() {
 		return id;
 	}
@@ -46,6 +46,6 @@ public class ItemInfoDTO {
 	public void setUpdated_date(String updated_date) {
 		this.updated_date = updated_date;
 	}
-	
-	
+
+
 }

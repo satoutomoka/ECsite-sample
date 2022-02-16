@@ -13,18 +13,17 @@ import template.sample.dao.ItemListDAO;
 import template.sample.dto.ItemInfoDTO;
 
 public class ItemListAction extends ActionSupport implements SessionAware{
-	//キーがString
+
 	private Map<String,Object> session;
-	//Listは複数件呼び出せる
-	private List<ItemInfoDTO>itemInfoDTOList =new ArrayList<ItemInfoDTO>();
+	private List<ItemInfoDTO>ItemInfoDTOList =new ArrayList<ItemInfoDTO>();
 
 	public String execute() throws SQLException{
 		ItemListDAO itemListDAO =new ItemListDAO();
-		itemInfoDTOList = itemListDAO.getItemList();
+		ItemInfoDTOList = itemListDAO.getItemList();
 
-		if(!(itemInfoDTOList.size() >0)){
+		if(!(ItemInfoDTOList.size() >0)){
 
-			itemInfoDTOList =null;
+			ItemInfoDTOList =null;
 		}
 		String result =SUCCESS;
 		return result;
@@ -39,11 +38,11 @@ public class ItemListAction extends ActionSupport implements SessionAware{
 	}
 
 	public List<ItemInfoDTO> getItemInfoDTOList() {
-		return itemInfoDTOList;
+		return ItemInfoDTOList;
 	}
 
 	public void setItemInfoDTOList(List<ItemInfoDTO> itemInfoDTOList) {
-		this.itemInfoDTOList = itemInfoDTOList;
+		this.ItemInfoDTOList = itemInfoDTOList;
 	}
 
 }

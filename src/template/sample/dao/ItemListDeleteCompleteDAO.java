@@ -12,25 +12,30 @@ public class ItemListDeleteCompleteDAO {
 	private Connection con =db.getConnection();
 
 	//DBから購入履歴を取得するためのメソッド
-	public int deleteItemList()throws SQLException{
+	public int deleteItemList(String id)throws SQLException{
 
-		String sql="delete from item_info_transaction";
+		int count =1;
+		String sql="delete from item_info_transaction where id=?";
 		PreparedStatement ps;
-		int result =0;
 
 		try{
 			//PreparedStatementに代入
 			ps=con.prepareStatement(sql);
+			ps.setString(1, id);
 
 			//更新したものをresultに代入
-			result=ps.executeUpdate();
+			count=ps.executeUpdate();
 
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		return result;
+		return count;
 
 	}
 
