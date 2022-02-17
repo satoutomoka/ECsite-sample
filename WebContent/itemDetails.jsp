@@ -24,34 +24,35 @@
 		<s:elseif test="message == null">
 			<h3>商品情報は以下になります。</h3>
 			<s:form action="ItemDeleteCompleteAction">
-			<table border="1">
-				<tr>
-					<th>Id</th>
-					<td><s:property value="itemDetailsDTO.id"/></td>
-				</tr>
-				<tr>
-					<th>商品名</th>
-					<td><s:property value="itemDetailsDTO.itemName"/></td>
-				</tr>
-				<tr>
-					<th>値段</th>
-					<td><s:property value="itemDetailsDTO.itemPrice"/><span>円</span></td>
-				</tr>
-				<tr>
-					<th>在庫</th>
-					<td><s:property value="itemDetailsDTO.itemStock"/><span>個</span></td>
-				</tr>
-				<tr>
-					<th>登録日</th>
-					<td><s:property value="itemDetailsDTO.insert_date"/></td>
-				</tr>
-				<tr>
-					<th>更新日</th>
-					<td><s:property value="itemDetailsDTO.updated_date"/></td>
-				</tr>
-			</table>
-				<s:hidden name="id" value="%{itemDetailsDTO.id}"/>
-				<s:submit value="削除"/>
+				<table border="1">
+					<tr>
+						<th>ID</th>
+						<td><s:property value="itemDetailsDTO.id"/></td>
+					</tr>
+					<tr>
+						<th>商品名</th>
+						<td><s:property value="itemDetailsDTO.itemName"/></td>
+					</tr>
+					<tr>
+						<th>値段</th>
+						<td><s:property value="itemDetailsDTO.itemPrice"/><span>円</span></td>
+					</tr>
+					<tr>
+						<th>在庫</th>
+						<td><s:property value="itemDetailsDTO.itemStock"/><span>個</span></td>
+					</tr>
+					<tr>
+						<th>登録日</th>
+						<td><s:property value="itemDetailsDTO.insert_date"/></td>
+					</tr>
+					<tr>
+						<th>更新日</th>
+						<td><s:property value="itemDetailsDTO.updated_date"/></td>
+					</tr>
+				</table>
+				<br>
+					<s:hidden name="id" value="%{itemDetailsDTO.id}"/>
+					<s:submit value="削除"/>
 			</s:form>
 		</s:elseif>
 		</div>

@@ -5,17 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import template.sample.dto.ItemInfoDTO;
+import template.sample.dto.UserInfoDTO;
 import template.sample.util.DBConnector;
 
-public class ItemDetailsDAO {
+public class UserDetailsDAO {
 
 	private DBConnector db =new DBConnector();
 	private Connection con =db.getConnection();
 
-	public ItemInfoDTO getItemInfo(String id)throws SQLException{
-		ItemInfoDTO dto =new ItemInfoDTO();
-		String sql ="select * from item_info_transaction where id=?";
+	public UserInfoDTO getUserInfo(String id)throws SQLException{
+		UserInfoDTO dto =new UserInfoDTO();
+		String sql ="select * from login_user_transaction where id=?";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
@@ -25,9 +25,9 @@ public class ItemDetailsDAO {
 			while(rs.next()){
 
 				dto.setId(rs.getString("id"));
-				dto.setItemName(rs.getString("item_name"));
-				dto.setItemPrice(rs.getString("item_price"));
-				dto.setItemStock(rs.getString("item_stock"));
+				dto.setLoginId(rs.getString("login_id"));
+				dto.setLoginPass(rs.getString("login_pass"));
+				dto.setUserName(rs.getString("user_name"));
 				dto.setInsert_date(rs.getString("insert_date"));
 				dto.setUpdated_date(rs.getString("updated_date"));
 

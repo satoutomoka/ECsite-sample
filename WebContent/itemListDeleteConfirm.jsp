@@ -24,7 +24,7 @@
 		<div>
 			<h3>以下の商品を削除します。よろしいですか？</h3>
 			<!-- もし1つの削除が押下されたら -->
-			<s:if test="%{userInfoDTOList < 2}">
+			<s:if test="%{userInfoDTOList > 2}">
 				<s:form action="UserListDeleteCompleteAction">
 					<input type="hidden" name="deleteFlg" value=null>
 					<input type="submit" value="OK1">

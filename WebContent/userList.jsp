@@ -35,6 +35,7 @@
 			<h3>ユーザー登録情報は以下になります。</h3>
 			<table border="1">
 					<tr>
+						<th>ID</th>
 						<th>ログインID</th>
 						<th>ログインPASS</th>
 						<th>ユーザー名</th>
@@ -44,13 +45,14 @@
 					</tr>
 					<s:iterator value="userInfoDTOList">
 						<tr>
+							<td><s:property value="id"/></td>
 							<td><s:property value="loginId"/></td>
 							<td><s:property value="loginPass"/></td>
 							<td><s:property value="userName"/></td>
 							<td><s:property value="insert_date"/></td>
 							<td><s:property value="update_date"/></td>
-							<td><a href='<s:url action="UserListDeleteConfirmAction"/>'>
-							<s:param name="deleteId" value="%{loginId}"/>削除</a></td>
+							<td><a href='<s:url action="UserListDeleteConfirmAction">
+							<s:param name="id" value="%{id}"/></s:url>'>削除</a></td>
 						</tr>
 					</s:iterator>
 				</table>

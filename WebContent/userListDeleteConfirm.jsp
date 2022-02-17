@@ -21,39 +21,38 @@
 		<div id="top">
 			<p>ユーザー一覧削除確認</p>
 		</div>
-		<div>
-			<h3>管理者以外のユーザーを削除します。よろしいですか？</h3>
-			<!-- もし1つの削除が押下されたら -->
-			<s:if test="%{userInfoDTOList < 2}">
-				<s:form action="UserListDeleteCompleteAction">
-					<input type="hidden" name="deleteFlg" value=null>
-					<input type="submit" value="OK1">
-				</s:form>
-			</s:if>
-			<s:else>
-				<s:form action="UserListDeleteCompleteAction">
-					<table border="1">
+			<h3>以外のユーザーを削除します。よろしいですか？</h3>
+			<s:form action="UserListDeleteCompleteAction">
+				<table border="1">
+					<tr>
+						<th>ID</th>
+						<td><s:property value="userDetailsDTO.id"/></td>
+					</tr>
 					<tr>
 						<th>ログインID</th>
-						<th>ログインPASS</th>
-						<th>ユーザー名</th>
-						<th>登録日</th>
-						<th>更新日</th>
-						<th colspan="2">アクション</th>
+						<td><s:property value="userDetailsDTO.loginId"/></td>
 					</tr>
 					<tr>
-						<td><s:property value="session.loginId"/></td>
-						<td><s:property value="session.loginPass"/></td>
-						<td><s:property value="session.userName"/></td>
-						<td><s:property value="session.insert_date"/></td>
-						<td><s:property value="session.update_date"/></td>
+						<th>ログインPASS</th>
+						<td><s:property value="userDetailsDTO.loginPass"/></td>
+					</tr>
+					<tr>
+						<th>ユーザー名</th>
+						<td><s:property value="userDetailsDTO.userName"/></td>
+					</tr>
+					<tr>
+						<th>登録日</th>
+						<td><s:property value="userDetailsDTO.insert_date"/></td>
+					</tr>
+					<tr>
+						<th>更新日</th>
+						<td><s:property value="userDetailsDTO.updated_date"/></td>
 					</tr>
 				</table>
-					<input type="hidden" name="deleteFlg" value="1">
-					<input type="submit" value="OK2">
-				</s:form>
-			</s:else>
-			<br>
+				<br>
+					<s:hidden name="id" value="%{id}"/>
+					<s:submit value="削除"/>
+			</s:form>
 		<div>
 			<input type="button" value="☜☜☜　Back" onclick="submitAction('UserListAction')"/>
 		</div>
@@ -61,7 +60,5 @@
 		<div id="footer">
 			sample ECsite 2022 year
 		</div>
-	</div>
-
-</body>
+	</body>
 </html>

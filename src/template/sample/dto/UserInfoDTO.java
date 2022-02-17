@@ -1,15 +1,15 @@
 package template.sample.dto;
 
 public class UserInfoDTO {
-	
+
 	private String id;
 	private String loginId;
 	private String loginPass;
 	private String userName;
 	private String insert_date;
 	private String updated_date;
-	
-	
+
+
 	public String getId() {
 		return id;
 	}
@@ -46,6 +46,5 @@ public class UserInfoDTO {
 	public void setUpdated_date(String updated_date) {
 		this.updated_date = updated_date;
 	}
-	
-	
+
 }

@@ -9,6 +9,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>商品一覧</title>
 <script type="text/javascript">
+const checkbox3 = document.getElementsByName("checkList")
 	function checkValue() {
 		var checkList = document.getElementsByClassName("checkList");
 		//初期化
@@ -25,6 +26,12 @@
 		} else {
 			document.getElementById('delete').disabled = "true";
 		}
+	}
+	//チェックボックス選択
+	function checkAllBox(trueOrFalse) {
+	  for(i = 0; i < checkbox3.length; i++) {
+	    checkbox3[i].checked = trueOrFalse
+	  }
 	}
 </script>
 </head>
@@ -44,7 +51,6 @@
 		</s:if>
 		<s:elseif test="message==null">
 			<h3>ご購入情報は以下になります。</h3>
-			<form action="ItemListDeleteCompleteAction">
 				<table border="1">
 						<tr>
 							<th>#</th>
@@ -58,8 +64,9 @@
 						</tr>
 					<s:iterator value="ItemInfoDTOList">
 						<tr>
-							<td><input type="checkbox" name="checkList"
-								class="checkList" value='<s:property value="id"/>'
+							<td>
+							<input type="checkbox" name="checkList"
+								class="checkList" value='<s:property value="%{id}"/>'
 								onchange="checkValue()" /></td>
 							<td><s:property value="id"/></td>
 							<td><s:property value="itemName"/></td>
@@ -71,8 +78,9 @@
 							<s:param name="id" value="%{id}"/></s:url>'>詳細</a></td>
 					</s:iterator>
 				</table>
-				<s:submit value="削除" class="submit_btn1" id="delete" disabled="true" />
-			</form>
+				<input type="button" onClick="checkAllBox(true)" value="全選択"><br>
+				<input type="button" onClick="checkAllBox(false)" value="全解除"><br>
+				<a href='<s:url action="ItemListDeleteCompleteAction"/>'><s:submit value="削除" id="delete"/></a>
 		</s:elseif>
 		<s:if test="message !=null">
 			<h3><s:property value="message"/></h3>
